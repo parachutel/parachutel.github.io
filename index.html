@@ -1,42 +1,444 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>我的个人主页</title>
-
-  <style>
-    body {
-      max-width: 720px;
-      margin: 80px auto;
-      padding: 0 24px;
-      font: 18px/1.7 system-ui, sans-serif;
-      color: #24292f;
-    }
-
-    h1 {
-      font-size: 42px;
-    }
-
-    a {
-      color: #0969da;
-    }
-  </style>
+  <meta name="description" content="Sheng Li is a Stanford Aero/Astro PhD exploring multi-agent reinforcement learning, intelligent coordination, and safer autonomous systems.">
+  <meta name="author" content="Sheng Li">
+  <meta name="theme-color" content="#080b10">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sheng Li — Multi-Agent Intelligence">
+  <meta property="og:description" content="Researching how intelligent agents communicate, coordinate, and make safer decisions together.">
+  <meta property="og:url" content="https://gpage.sheng-li.me/">
+  <meta property="og:image" content="https://gpage.sheng-li.me/assets/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sheng Li — Teaching intelligent systems to cooperate">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sheng Li — Multi-Agent Intelligence">
+  <meta name="twitter:description" content="Researching how intelligent agents communicate, coordinate, and make safer decisions together.">
+  <meta name="twitter:image" content="https://gpage.sheng-li.me/assets/images/og.png">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="styles.css">
+  <title>Sheng Li — Multi-Agent Intelligence</title>
 </head>
-
 <body>
-  <h1>你好，我是小明 👋</h1>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <p>这里是我的个人主页，我是一名开发者，关注 Web、人工智能和开源项目。</p>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
-  <h2>我的项目</h2>
-  <ul>
-    <li><a href="#">项目一</a></li>
-    <li><a href="#">项目二</a></li>
-  </ul>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Sheng Li, home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy">
+        <strong>Sheng Li</strong>
+        <small>Intelligent systems</small>
+      </span>
+    </a>
 
-  <p>
-    <a href="https://github.com/你的用户名">访问我的 GitHub</a>
-  </p>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span></span>
+      <span></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#photography">Photography</a>
+      <a class="nav-contact" href="#contact">Connect <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <canvas id="agent-canvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+        <p class="eyebrow reveal">
+          <span class="status-dot"></span>
+          Multi-agent intelligence · Stanford
+        </p>
+        <h1 id="hero-title" class="reveal">
+          Teaching intelligent systems
+          <span class="accent-line">to cooperate.</span>
+        </h1>
+        <p class="hero-intro reveal">
+          I’m Sheng Li, a Stanford Aero/Astro PhD exploring the structure of
+          multi-agent cooperation—how agents communicate, coordinate, and make
+          safer decisions together.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="button button-primary" href="#research">
+            Explore research <span aria-hidden="true">↓</span>
+          </a>
+          <a class="button button-ghost" href="https://sheng-li.me/wp-content/uploads/2021/01/CV.pdf" target="_blank" rel="noreferrer">
+            Curriculum vitae <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="portrait-frame">
+          <div class="portrait-scan" aria-hidden="true"></div>
+          <img src="assets/images/sheng-li.jpg" alt="Portrait of Sheng Li at a marina" width="918" height="1024">
+          <div class="portrait-meta" aria-hidden="true">
+            <span>SUBJECT / SHENG_LI</span>
+            <span>37.4275° N</span>
+          </div>
+        </div>
+
+        <div class="signal-card signal-card-top" aria-hidden="true">
+          <span class="signal-icon">
+            <i></i><i></i><i></i>
+          </span>
+          <span>
+            <small>Research focus</small>
+            Agent communication
+          </span>
+        </div>
+
+        <div class="signal-card signal-card-bottom" aria-hidden="true">
+          <span class="live-ring"></span>
+          <span>
+            <small>System state</small>
+            Coordinating
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-index" aria-hidden="true">
+        <span>01</span>
+        <i></i>
+        <span>05</span>
+      </div>
+
+      <a class="scroll-cue" href="#about">
+        <span>Scroll to discover</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Multi-agent RL</span><i>✦</i>
+        <span>Coordination graphs</span><i>✦</i>
+        <span>Emergent communication</span><i>✦</i>
+        <span>Airspace safety</span><i>✦</i>
+        <span>Urban air mobility</span><i>✦</i>
+        <span>Multi-agent RL</span><i>✦</i>
+        <span>Coordination graphs</span><i>✦</i>
+        <span>Emergent communication</span><i>✦</i>
+        <span>Airspace safety</span><i>✦</i>
+        <span>Urban air mobility</span><i>✦</i>
+      </div>
+    </div>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="section-label reveal">
+        <span>01</span>
+        <p>About</p>
+      </div>
+
+      <div class="about-lead">
+        <p class="kicker reveal">Structure before scale</p>
+        <h2 id="about-title" class="display-heading reveal">
+          Intelligence is more powerful when it knows
+          <em>how to work together.</em>
+        </h2>
+      </div>
+
+      <div class="about-body">
+        <div class="about-statement reveal">
+          <p>
+            At Stanford Intelligent Systems Laboratory, I studied cooperation
+            and coordination from a structural perspective: learning who should
+            communicate, what should be said, and how a group can act as more
+            than a collection of individuals.
+          </p>
+          <p>
+            My earlier work applied reinforcement learning to aircraft
+            collision avoidance and urban air mobility—domains where
+            coordination is not just elegant, but essential for safety.
+          </p>
+        </div>
+
+        <div class="focus-matrix reveal" role="list" aria-label="Research focus areas">
+          <div role="listitem">
+            <span>01</span>
+            <strong>Cooperation</strong>
+            <small>Shared behavior</small>
+          </div>
+          <div role="listitem">
+            <span>02</span>
+            <strong>Communication</strong>
+            <small>Emergent language</small>
+          </div>
+          <div role="listitem">
+            <span>03</span>
+            <strong>Coordination</strong>
+            <small>Dynamic structure</small>
+          </div>
+          <div role="listitem">
+            <span>04</span>
+            <strong>Safety</strong>
+            <small>Autonomous airspace</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="education-grid">
+        <article class="education-card reveal">
+          <div class="education-year">2022</div>
+          <div>
+            <p class="card-overline">Stanford University</p>
+            <h3>PhD, Aeronautics & Astronautics</h3>
+            <p>Multi-agent reinforcement learning at Stanford Intelligent Systems Laboratory.</p>
+          </div>
+        </article>
+        <article class="education-card reveal">
+          <div class="education-year">2019</div>
+          <div>
+            <p class="card-overline">Stanford University</p>
+            <h3>MS, Aeronautics & Astronautics</h3>
+            <p>Autonomous systems, decision making, and airspace safety.</p>
+          </div>
+        </article>
+        <article class="education-card reveal">
+          <div class="education-year">2017</div>
+          <div>
+            <p class="card-overline">Michigan × SJTU</p>
+            <h3>Dual bachelor’s degrees</h3>
+            <p>Aerospace Engineering and Mechanical Engineering.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section research" id="research" aria-labelledby="research-title">
+      <div class="section-label reveal">
+        <span>02</span>
+        <p>Selected research</p>
+      </div>
+
+      <div class="section-heading-row">
+        <div>
+          <p class="kicker reveal">Systems that think together</p>
+          <h2 id="research-title" class="display-heading reveal">Selected work.</h2>
+        </div>
+        <p class="section-intro reveal">
+          From learned language to dense airspace, each project asks how local
+          decisions can create intelligent collective behavior.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <a class="project-card project-card-wide reveal" href="https://sheng-li.me/learning-emergent-discrete-message-communication-for-cooperative-reinforcement-learning/" target="_blank" rel="noreferrer">
+          <div class="project-image">
+            <img src="assets/images/project-communication.png" alt="Architecture diagram for discrete message communication between agents" width="2222" height="1526" loading="lazy">
+            <span class="project-number">01</span>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta">
+              <span>ICRA 2022</span>
+              <span>Communication</span>
+            </div>
+            <h3>Emergent discrete messages for cooperative learning</h3>
+            <p>Agents learn a compact, interpretable vocabulary through a broadcast-and-listen mechanism—with a path for humans to join the conversation.</p>
+            <span class="project-link">Open project <i>↗</i></span>
+          </div>
+        </a>
+
+        <a class="project-card reveal" href="https://sheng-li.me/deep-implicit-coordination-graphs-for-multi-agent-reinforcement-learning/" target="_blank" rel="noreferrer">
+          <div class="project-image">
+            <img src="assets/images/project-dicg.png" alt="Deep implicit coordination graph research visualization" width="1646" height="1008" loading="lazy">
+            <span class="project-number">02</span>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta">
+              <span>AAMAS 2021</span>
+              <span>Coordination</span>
+            </div>
+            <h3>Deep implicit coordination graphs</h3>
+            <p>A dynamic graph structure that learns which agent interactions matter, balancing centralized reasoning with decentralized action.</p>
+            <span class="project-link">Open project <i>↗</i></span>
+          </div>
+        </a>
+
+        <a class="project-card reveal" href="https://sheng-li.me/analysis-of-fleet-management-and-infrastructure-constraints-in-on-demand-urban-air-mobility-operations/" target="_blank" rel="noreferrer">
+          <div class="project-image">
+            <img src="assets/images/project-uam.png" alt="Urban air mobility network over the San Francisco Bay Area" width="1732" height="878" loading="lazy">
+            <span class="project-number">03</span>
+            <span class="award-badge">Best paper</span>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta">
+              <span>AIAA 2020</span>
+              <span>Urban air mobility</span>
+            </div>
+            <h3>Fleet management at city scale</h3>
+            <p>Simulation-driven analysis of fleet, infrastructure, and traffic policies for scalable on-demand urban air mobility.</p>
+            <span class="project-link">Open project <i>↗</i></span>
+          </div>
+        </a>
+
+        <a class="project-card project-card-wide reveal" href="https://sheng-li.me/project-1/" target="_blank" rel="noreferrer">
+          <div class="project-image">
+            <img src="assets/images/project-collision.png" alt="Dense airspace aircraft simulation for collision avoidance" width="1122" height="566" loading="lazy">
+            <span class="project-number">04</span>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta">
+              <span>ATM 2019</span>
+              <span>Airspace safety</span>
+            </div>
+            <h3>Collision avoidance in dense airspace</h3>
+            <p>Deep reinforcement learning corrections help traditional avoidance systems maintain safety while operating more efficiently at high traffic density.</p>
+            <span class="project-link">Open project <i>↗</i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="research-cta reveal">
+        <p>More experiments in autonomous driving, uncertainty, perception, and distributed learning.</p>
+        <a href="https://sheng-li.me/projects/" target="_blank" rel="noreferrer">View the complete project archive <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="section publications" id="publications" aria-labelledby="publications-title">
+      <div class="section-label reveal">
+        <span>03</span>
+        <p>Publications</p>
+      </div>
+
+      <div class="section-heading-row publications-heading">
+        <div>
+          <p class="kicker reveal">Peer-reviewed ideas</p>
+          <h2 id="publications-title" class="display-heading reveal">In print.</h2>
+        </div>
+        <a class="text-link reveal" href="https://scholar.google.com/citations?user=JEUNaXEAAAAJ&hl=en" target="_blank" rel="noreferrer">
+          Google Scholar <span>↗</span>
+        </a>
+      </div>
+
+      <div class="publication-list">
+        <a class="publication-row reveal" href="https://arxiv.org/pdf/2102.12550.pdf" target="_blank" rel="noreferrer">
+          <span class="publication-year">2022</span>
+          <span class="publication-title">Learning Emergent Discrete Message Communication for Cooperative Reinforcement Learning</span>
+          <span class="publication-venue">ICRA</span>
+          <span class="publication-arrow">↗</span>
+        </a>
+        <a class="publication-row reveal" href="https://arxiv.org/pdf/2006.11438.pdf" target="_blank" rel="noreferrer">
+          <span class="publication-year">2021</span>
+          <span class="publication-title">Deep Implicit Coordination Graphs for Multi-agent Reinforcement Learning</span>
+          <span class="publication-venue">AAMAS</span>
+          <span class="publication-arrow">↗</span>
+        </a>
+        <a class="publication-row reveal" href="https://ieeexplore.ieee.org/document/9286212" target="_blank" rel="noreferrer">
+          <span class="publication-year">2020</span>
+          <span class="publication-title">Towards a Distributed Framework for Multi-Agent Reinforcement Learning Research</span>
+          <span class="publication-venue">HPEC</span>
+          <span class="publication-arrow">↗</span>
+        </a>
+        <a class="publication-row reveal" href="https://arc.aiaa.org/doi/10.2514/6.2020-2907" target="_blank" rel="noreferrer">
+          <span class="publication-year">2020</span>
+          <span class="publication-title">Analysis of Fleet Management and Infrastructure Constraints in On-Demand Urban Air Mobility Operations</span>
+          <span class="publication-venue publication-venue-award">AIAA · Best paper</span>
+          <span class="publication-arrow">↗</span>
+        </a>
+        <a class="publication-row reveal" href="http://www.atmseminar.org/seminarContent/seminar13/papers/ATM_Seminar_2019_paper_65.pdf" target="_blank" rel="noreferrer">
+          <span class="publication-year">2019</span>
+          <span class="publication-title">Optimizing Collision Avoidance in Dense Airspace Using Deep Reinforcement Learning</span>
+          <span class="publication-venue">ATM Seminar</span>
+          <span class="publication-arrow">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section photography" id="photography" aria-labelledby="photography-title">
+      <div class="section-label section-label-light reveal">
+        <span>04</span>
+        <p>Beyond the lab</p>
+      </div>
+
+      <div class="photo-heading">
+        <p class="kicker reveal">Light · place · patience</p>
+        <h2 id="photography-title" class="display-heading reveal">
+          Looking closely is
+          <em>another kind of research.</em>
+        </h2>
+      </div>
+
+      <div class="photo-composition">
+        <figure class="photo photo-tall reveal">
+          <img src="assets/images/photo-yosemite.jpg" alt="Yosemite Firefall glowing orange against a snowy cliff, photographed by Sheng Li" width="683" height="1024" loading="lazy">
+          <figcaption>
+            <span>Firefall</span>
+            <small>Yosemite · 2019</small>
+          </figcaption>
+        </figure>
+
+        <div class="photo-copy reveal">
+          <p>
+            Away from algorithms, I photograph landscapes and cities—waiting
+            for scale, motion, and light to briefly align.
+          </p>
+          <a href="https://www.instagram.com/parachutel_/" target="_blank" rel="noreferrer">
+            Follow the visual journal <span>↗</span>
+          </a>
+        </div>
+
+        <figure class="photo photo-wide reveal">
+          <img src="assets/images/photo-san-francisco.jpg" alt="Golden Gate Bridge and San Francisco at blue hour, photographed by Sheng Li" width="1024" height="683" loading="lazy">
+          <figcaption>
+            <span>Golden Gate in blue</span>
+            <small>San Francisco</small>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-orbit" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <p class="kicker reveal">Open channel</p>
+      <h2 id="contact-title" class="reveal">Let’s coordinate.</h2>
+      <p class="contact-intro reveal">
+        Research, intelligent systems, ambitious ideas—or a great place to take a photograph.
+      </p>
+      <a class="contact-email reveal" href="mailto:lisheng@stanford.edu">
+        lisheng@stanford.edu <span>↗</span>
+      </a>
+
+      <nav class="contact-links reveal" aria-label="Social links">
+        <a href="https://github.com/parachutel" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+        <a href="https://www.linkedin.com/in/sheng-li-b644b697/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+        <a href="https://www.instagram.com/parachutel_/" target="_blank" rel="noreferrer">Instagram <span>↗</span></a>
+        <a href="https://sheng-li.me/" target="_blank" rel="noreferrer">Original archive <span>↗</span></a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#top" aria-label="Back to top">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy">
+        <strong>Sheng Li</strong>
+        <small>Think together.</small>
+      </span>
+    </a>
+    <p>© <span data-year>2026</span> Sheng Li</p>
+    <a class="back-to-top" href="#top">Back to top <span>↑</span></a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
