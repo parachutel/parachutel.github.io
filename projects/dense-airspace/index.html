@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sheng Li's deep reinforcement learning approach to collision avoidance in dense unmanned airspace.">
+  <meta name="author" content="Sheng Li">
+  <meta name="theme-color" content="#080b10">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Collision Avoidance in Dense Airspace — Sheng Li">
+  <meta property="og:description" content="Correcting traditional collision avoidance for safer, more efficient high-density airspace.">
+  <meta property="og:url" content="https://gpage.sheng-li.me/projects/dense-airspace/">
+  <meta property="og:image" content="https://gpage.sheng-li.me/assets/images/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://gpage.sheng-li.me/projects/dense-airspace/">
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <title>Collision Avoidance in Dense Airspace — Sheng Li</title>
+</head>
+<body class="project-page collision">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="../../" aria-label="Sheng Li, home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy"><strong>Sheng Li</strong><small>Intelligent systems</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="../../#about">About</a>
+      <a href="../../#research">Research</a>
+      <a href="../../#publications">Publications</a>
+      <a href="../../#photography">Photography</a>
+      <a class="nav-contact" href="../../#contact">Connect <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero project-hero" id="top" aria-labelledby="project-title">
+      <canvas id="agent-canvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <p class="project-breadcrumb">
+        <a href="../">← Selected research</a><i></i><span>Case study / 04</span>
+      </p>
+
+      <div class="project-hero-copy">
+        <p class="eyebrow reveal"><span class="status-dot"></span> ATM 2019 · Airspace safety</p>
+        <h1 id="project-title" class="reveal">
+          Collision avoidance
+          <span class="accent-line">in dense airspace.</span>
+        </h1>
+        <p class="hero-intro reveal">
+          A deep reinforcement learning correction layer helps traditional
+          collision-avoidance logic remain safe and efficient as traffic density rises.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="button button-primary" href="#overview">Read the case study <span>↓</span></a>
+          <a class="button button-ghost" href="https://arxiv.org/pdf/1912.10146.pdf" target="_blank" rel="noreferrer">Read the paper <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="project-visual reveal">
+        <div class="project-visual-frame">
+          <span class="project-visual-tag">Learned correction layer</span>
+          <img src="../../assets/images/project-collision.png" alt="Deep reinforcement learning correction architecture for collision avoidance" width="1122" height="566">
+          <div class="project-visual-meta" aria-hidden="true"><span>Base policy / Correction</span><span>Dense traffic</span></div>
+        </div>
+        <span class="project-visual-index">04</span>
+      </div>
+      <a class="scroll-cue" href="#overview"><span>Explore the system</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <section class="project-facts" aria-label="Project facts">
+      <div class="project-facts-inner">
+        <div class="project-fact"><small>Domain</small><strong>Unmanned airspace</strong></div>
+        <div class="project-fact"><small>Method</small><strong>Deep RL correction</strong></div>
+        <div class="project-fact"><small>Objective</small><strong>Safety + efficiency</strong></div>
+        <div class="project-fact"><small>Venue</small><strong>ATM Seminar 2019</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section" id="overview" aria-labelledby="overview-title">
+      <div class="case-label reveal"><span>01</span> The problem</div>
+      <div class="case-heading-grid">
+        <h2 id="overview-title" class="reveal">Safety logic meets <em>traffic density.</em></h2>
+        <div class="case-copy reveal">
+          <p>
+            New unmanned operations can push free-flight airspace toward traffic
+            densities that traditional collision-avoidance systems were not
+            designed to handle. More encounters create more alerts, more
+            maneuvering, and a growing decision burden.
+          </p>
+          <p>
+            Instead of replacing an established avoidance system, this work
+            learns a correction around it. Deep reinforcement learning adapts
+            the system’s decisions for dense environments while preserving the
+            safety foundation of the original logic.
+          </p>
+        </div>
+      </div>
+      <div class="project-question reveal">
+        <span>Q / 04</span>
+        <blockquote>How can proven collision-avoidance logic adapt when dense traffic breaks its operating assumptions?</blockquote>
+      </div>
+    </section>
+
+    <section class="case-section method-section" id="method" aria-labelledby="method-title">
+      <div class="case-label reveal"><span>02</span> The correction strategy</div>
+      <div class="case-heading-grid">
+        <h2 id="method-title" class="reveal">Preserve the base. <em>Learn the adjustment.</em></h2>
+        <div class="case-copy reveal">
+          <p>
+            The approach decomposes the global state into pairwise encounters,
+            combines their avoidance values, and adds a learned correction. New
+            metrics quantify both the decision burden placed on the avoidance
+            system and its operational impact on the surrounding airspace.
+          </p>
+        </div>
+      </div>
+
+      <figure class="method-figure reveal">
+        <div class="method-image">
+          <img src="../../assets/images/project-collision.png" alt="Architecture combining pairwise collision-avoidance values with a learned correction function" width="1122" height="566" loading="lazy">
+        </div>
+        <figcaption><span>Figure 01 / Collision-avoidance correction</span><span>Pairwise value fusion + learned adjustment</span></figcaption>
+      </figure>
+
+      <div class="method-steps">
+        <article class="method-step reveal">
+          <span>01 / Measure</span>
+          <h3>Quantify the burden</h3>
+          <p>Metrics capture how hard the avoidance system must work and how strongly it disrupts the airspace.</p>
+        </article>
+        <article class="method-step reveal">
+          <span>02 / Correct</span>
+          <h3>Learn around proven logic</h3>
+          <p>A deep reinforcement learning function adjusts the aggregated avoidance values for dense encounters.</p>
+        </article>
+        <article class="method-step reveal">
+          <span>03 / Evaluate</span>
+          <h3>Balance safety and flow</h3>
+          <p>The corrected system is assessed for both high safety levels and efficient operation under dense traffic.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section" id="findings" aria-labelledby="findings-title">
+      <div class="case-label reveal"><span>03</span> What it showed</div>
+      <div class="findings-heading">
+        <h2 id="findings-title" class="reveal">Adaptation without discarding the safety core.</h2>
+        <p class="reveal">Learning can improve how a conventional system behaves at the edge of its design envelope.</p>
+      </div>
+      <div class="finding-grid">
+        <article class="finding-card reveal">
+          <span>01 / Safety</span>
+          <h3>High safety levels maintained</h3>
+          <p>The corrected collision-avoidance system preserved high levels of safety in dense airspace.</p>
+        </article>
+        <article class="finding-card reveal">
+          <span>02 / Efficiency</span>
+          <h3>Less operational disruption</h3>
+          <p>Compared with traditional methods, the corrected approach operated more efficiently under high traffic density.</p>
+        </article>
+        <article class="finding-card reveal">
+          <span>03 / Framing</span>
+          <h3>A measurable system tradeoff</h3>
+          <p>Decision-burden and airspace-impact metrics make the balance between intervention and efficiency explicit.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="paper-section" id="paper" aria-labelledby="paper-title">
+      <div class="paper-inner">
+        <span class="paper-index">04 / Paper</span>
+        <div class="paper-copy reveal">
+          <p class="kicker">ATM Research &amp; Development Seminar · 2019</p>
+          <h2 id="paper-title">Optimizing Collision Avoidance in Dense Airspace Using Deep Reinforcement Learning</h2>
+          <p class="paper-authors">Sheng Li, M. Egorov, and M. J. Kochenderfer</p>
+          <p class="paper-venue">Air Traffic Management Research and Development Seminar · 2019</p>
+        </div>
+        <div class="paper-actions reveal">
+          <a class="button button-primary" href="https://arxiv.org/pdf/1912.10146.pdf" target="_blank" rel="noreferrer">Open PDF <span>↗</span></a>
+          <a class="button button-ghost" href="https://sheng-li.me/project-1/" target="_blank" rel="noreferrer">Source archive <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <nav class="project-navigation" aria-label="More research">
+      <a class="project-nav-link previous" href="../urban-air-mobility/">
+        <small>Previous case study · 03</small>
+        <strong><span>←</span> Urban air mobility</strong>
+      </a>
+      <a class="project-nav-link" href="../">
+        <small>Research index</small>
+        <strong>All selected work <span>→</span></strong>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="../../" aria-label="Back home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy"><strong>Sheng Li</strong><small>Think together.</small></span>
+    </a>
+    <p>© <span data-year>2026</span> Sheng Li</p>
+    <a class="back-to-top" href="#top">Back to top <span>↑</span></a>
+  </footer>
+  <script src="../../script.js"></script>
+</body>
+</html>

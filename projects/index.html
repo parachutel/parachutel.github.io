@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Selected research by Sheng Li in multi-agent reinforcement learning, intelligent coordination, urban air mobility, and airspace safety.">
+  <meta name="author" content="Sheng Li">
+  <meta name="theme-color" content="#080b10">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Selected Research — Sheng Li">
+  <meta property="og:description" content="How intelligent systems communicate, coordinate, and make safer decisions together.">
+  <meta property="og:url" content="https://gpage.sheng-li.me/projects/">
+  <meta property="og:image" content="https://gpage.sheng-li.me/assets/images/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://gpage.sheng-li.me/projects/">
+  <link rel="icon" href="../assets/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../project.css">
+  <title>Selected Research — Sheng Li</title>
+</head>
+<body class="project-page project-index-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="../" aria-label="Sheng Li, home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy">
+        <strong>Sheng Li</strong>
+        <small>Intelligent systems</small>
+      </span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="../#about">About</a>
+      <a href="../#research">Research</a>
+      <a href="../#publications">Publications</a>
+      <a href="../#photography">Photography</a>
+      <a class="nav-contact" href="../#contact">Connect <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero project-index-hero" id="top" aria-labelledby="page-title">
+      <canvas id="agent-canvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <p class="project-breadcrumb">
+        <a href="../#research">← Back home</a><i></i><span>Research index</span>
+      </p>
+
+      <div class="hero-copy">
+        <p class="eyebrow reveal"><span class="status-dot"></span> Selected research · 2019—2022</p>
+        <h1 id="page-title" class="reveal">
+          Research is a
+          <span class="accent-line">coordination problem.</span>
+        </h1>
+        <p class="hero-intro reveal">
+          Four investigations into the structures that let intelligent systems
+          exchange information, reason about one another, and operate safely at scale.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="button button-primary" href="#selected">Explore the work <span>↓</span></a>
+          <a class="button button-ghost" href="https://scholar.google.com/citations?user=JEUNaXEAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="index-orbit reveal" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <a class="scroll-cue" href="#selected"><span>View case studies</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <section class="research-index" id="selected" aria-labelledby="selected-title">
+      <div class="section-label reveal">
+        <span>01</span>
+        <p id="selected-title">Selected case studies</p>
+      </div>
+
+      <div class="index-project-list">
+        <a class="index-project reveal" href="emergent-communication/">
+          <span class="index-project-number">01</span>
+          <div class="index-project-copy">
+            <small>ICRA 2022 · Cooperative MARL</small>
+            <h2>Emergent discrete message communication</h2>
+            <p>A compact, interpretable vocabulary learned by agents through broadcast, listening, and self-attention.</p>
+          </div>
+          <div class="index-project-image">
+            <img src="../assets/images/project-communication.png" alt="" width="2222" height="1526" loading="lazy">
+          </div>
+          <span class="index-project-arrow">↗</span>
+        </a>
+
+        <a class="index-project reveal" href="implicit-coordination/">
+          <span class="index-project-number">02</span>
+          <div class="index-project-copy">
+            <small>AAMAS 2021 · Coordination graphs</small>
+            <h2>Deep implicit coordination graphs</h2>
+            <p>A learned dynamic graph discovers which agent interactions matter before graph reasoning turns structure into action.</p>
+          </div>
+          <div class="index-project-image">
+            <img src="../assets/images/project-dicg.png" alt="" width="1646" height="1008" loading="lazy">
+          </div>
+          <span class="index-project-arrow">↗</span>
+        </a>
+
+        <a class="index-project reveal" href="urban-air-mobility/">
+          <span class="index-project-number">03</span>
+          <div class="index-project-copy">
+            <small>AIAA 2020 · Best paper</small>
+            <h2>Urban air mobility at system scale</h2>
+            <p>Simulation-driven analysis reveals which fleet, infrastructure, and traffic policies control capacity and throughput.</p>
+          </div>
+          <div class="index-project-image">
+            <img src="../assets/images/project-uam.png" alt="" width="1732" height="878" loading="lazy">
+          </div>
+          <span class="index-project-arrow">↗</span>
+        </a>
+
+        <a class="index-project reveal" href="dense-airspace/">
+          <span class="index-project-number">04</span>
+          <div class="index-project-copy">
+            <small>ATM 2019 · Airspace safety</small>
+            <h2>Collision avoidance in dense airspace</h2>
+            <p>A deep reinforcement learning correction layer helps traditional avoidance logic remain safe and efficient as traffic density rises.</p>
+          </div>
+          <div class="index-project-image">
+            <img src="../assets/images/project-collision.png" alt="" width="1122" height="566" loading="lazy">
+          </div>
+          <span class="index-project-arrow">↗</span>
+        </a>
+      </div>
+
+      <div class="archive-note reveal">
+        <p>Earlier experiments span distributed training, driver uncertainty, semantic segmentation, and autonomous highway behavior.</p>
+        <a href="https://sheng-li.me/projects/" target="_blank" rel="noreferrer">Visit the original archive <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="../" aria-label="Back home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy"><strong>Sheng Li</strong><small>Think together.</small></span>
+    </a>
+    <p>© <span data-year>2026</span> Sheng Li</p>
+    <a class="back-to-top" href="#top">Back to top <span>↑</span></a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

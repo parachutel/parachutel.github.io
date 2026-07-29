@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sheng Li's Deep Implicit Coordination Graph architecture for learning dynamic interaction structure in multi-agent reinforcement learning.">
+  <meta name="author" content="Sheng Li">
+  <meta name="theme-color" content="#080b10">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Deep Implicit Coordination Graphs — Sheng Li">
+  <meta property="og:description" content="Learning which agent interactions matter before reasoning about joint action.">
+  <meta property="og:url" content="https://gpage.sheng-li.me/projects/implicit-coordination/">
+  <meta property="og:image" content="https://gpage.sheng-li.me/assets/images/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://gpage.sheng-li.me/projects/implicit-coordination/">
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <title>Deep Implicit Coordination Graphs — Sheng Li</title>
+</head>
+<body class="project-page coordination">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="../../" aria-label="Sheng Li, home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy"><strong>Sheng Li</strong><small>Intelligent systems</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="../../#about">About</a>
+      <a href="../../#research">Research</a>
+      <a href="../../#publications">Publications</a>
+      <a href="../../#photography">Photography</a>
+      <a class="nav-contact" href="../../#contact">Connect <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero project-hero" id="top" aria-labelledby="project-title">
+      <canvas id="agent-canvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <p class="project-breadcrumb">
+        <a href="../">← Selected research</a><i></i><span>Case study / 02</span>
+      </p>
+
+      <div class="project-hero-copy">
+        <p class="eyebrow reveal"><span class="status-dot"></span> AAMAS 2021 · Coordination graphs</p>
+        <h1 id="project-title" class="reveal">
+          Deep implicit
+          <span class="accent-line">coordination graphs.</span>
+        </h1>
+        <p class="hero-intro reveal">
+          A learned dynamic graph discovers which agent interactions matter,
+          then turns that structure into coordinated action.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="button button-primary" href="#overview">Read the case study <span>↓</span></a>
+          <a class="button button-ghost" href="https://arxiv.org/pdf/2006.11438.pdf" target="_blank" rel="noreferrer">Read the paper <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="project-visual reveal">
+        <div class="project-visual-frame">
+          <span class="project-visual-tag">Learned graph structure</span>
+          <img src="../../assets/images/project-dicg.png" alt="Deep implicit coordination graph architecture using attention and graph convolution" width="1646" height="1008">
+          <div class="project-visual-meta" aria-hidden="true"><span>Infer / Propagate</span><span>CTCE + CTDE</span></div>
+        </div>
+        <span class="project-visual-index">02</span>
+      </div>
+      <a class="scroll-cue" href="#overview"><span>Explore the system</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <section class="project-facts" aria-label="Project facts">
+      <div class="project-facts-inner">
+        <div class="project-fact"><small>Domain</small><strong>Multi-agent RL</strong></div>
+        <div class="project-fact"><small>Structure</small><strong>Dynamic coordination graph</strong></div>
+        <div class="project-fact"><small>Learning</small><strong>Attention + graph convolution</strong></div>
+        <div class="project-fact"><small>Venue</small><strong>AAMAS 2021</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section" id="overview" aria-labelledby="overview-title">
+      <div class="case-label reveal"><span>01</span> The problem</div>
+      <div class="case-heading-grid">
+        <h2 id="overview-title" class="reveal">Coordinate the team, <em>not every pair.</em></h2>
+        <div class="case-copy reveal">
+          <p>
+            Centralized control becomes difficult as the joint action space grows,
+            while purely decentralized agents can miss the interactions required
+            to solve a task. Coordination graphs offer a middle ground, but
+            traditional graph structures often depend on domain expertise.
+          </p>
+          <p>
+            Deep Implicit Coordination Graphs remove that hand-designed
+            bottleneck. The model infers a changing interaction structure from
+            agent observations, then uses graph reasoning to model joint values
+            or actions where coordination is actually needed.
+          </p>
+        </div>
+      </div>
+      <div class="project-question reveal">
+        <span>Q / 02</span>
+        <blockquote>Who needs to coordinate with whom—and how should that structure change with the situation?</blockquote>
+      </div>
+    </section>
+
+    <section class="case-section method-section" id="method" aria-labelledby="method-title">
+      <div class="case-label reveal"><span>02</span> The architecture</div>
+      <div class="case-heading-grid">
+        <h2 id="method-title" class="reveal">Infer the graph. <em>Reason over it.</em></h2>
+        <div class="case-copy reveal">
+          <p>
+            Attention weights form an implicit coordination graph over encoded
+            agent observations. Graph convolution propagates information along
+            the learned edges, producing representations that can support both
+            centralized and decentralized execution regimes.
+          </p>
+        </div>
+      </div>
+
+      <figure class="method-figure reveal">
+        <div class="method-image">
+          <img src="../../assets/images/project-dicg.png" alt="DICG architecture showing observation encoders, attention-derived edges, graph convolution, and policies" width="1646" height="1008" loading="lazy">
+        </div>
+        <figcaption><span>Figure 01 / Deep implicit coordination graph</span><span>Attention → graph convolution → policy</span></figcaption>
+      </figure>
+
+      <div class="method-steps">
+        <article class="method-step reveal">
+          <span>01 / Observe</span>
+          <h3>Encode each agent</h3>
+          <p>Local observations become agent embeddings that preserve the information needed for interaction.</p>
+        </article>
+        <article class="method-step reveal">
+          <span>02 / Structure</span>
+          <h3>Infer dynamic edges</h3>
+          <p>Attention learns the strength of pairwise relationships instead of relying on a fixed expert-designed graph.</p>
+        </article>
+        <article class="method-step reveal">
+          <span>03 / Reason</span>
+          <h3>Propagate coordinated context</h3>
+          <p>Graph convolution moves information through the inferred structure before policies produce actions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section" id="findings" aria-labelledby="findings-title">
+      <div class="case-label reveal"><span>03</span> What it showed</div>
+      <div class="findings-heading">
+        <h2 id="findings-title" class="reveal">Structure can be learned alongside behavior.</h2>
+        <p class="reveal">The model learns a useful position between full centralization and independent action.</p>
+      </div>
+      <div class="finding-grid">
+        <article class="finding-card reveal">
+          <span>01 / Pathology</span>
+          <h3>Resolves relative overgeneralization</h3>
+          <p>DICG addresses the coordination pathology in predator–prey tasks where individually reasonable actions can fail jointly.</p>
+        </article>
+        <article class="finding-card reveal">
+          <span>02 / Benchmarks</span>
+          <h3>Strong across distinct domains</h3>
+          <p>The architecture outperformed multi-agent baselines on SMAC and traffic-junction environments.</p>
+        </article>
+        <article class="finding-card reveal">
+          <span>03 / Flexibility</span>
+          <h3>Supports two execution regimes</h3>
+          <p>The learned structure applies to centralized-training centralized-execution and centralized-training decentralized-execution.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="paper-section" id="paper" aria-labelledby="paper-title">
+      <div class="paper-inner">
+        <span class="paper-index">04 / Paper</span>
+        <div class="paper-copy reveal">
+          <p class="kicker">Published at AAMAS 2021</p>
+          <h2 id="paper-title">Deep Implicit Coordination Graphs for Multi-agent Reinforcement Learning</h2>
+          <p class="paper-authors">Sheng Li, J. K. Gupta, P. Morales, R. Allen, and M. J. Kochenderfer</p>
+          <p class="paper-venue">International Conference on Autonomous Agents and Multiagent Systems · 2021</p>
+        </div>
+        <div class="paper-actions reveal">
+          <a class="button button-primary" href="https://arxiv.org/pdf/2006.11438.pdf" target="_blank" rel="noreferrer">Open PDF <span>↗</span></a>
+          <a class="button button-ghost" href="https://sheng-li.me/deep-implicit-coordination-graphs-for-multi-agent-reinforcement-learning/" target="_blank" rel="noreferrer">Source archive <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <nav class="project-navigation" aria-label="More research">
+      <a class="project-nav-link previous" href="../emergent-communication/">
+        <small>Previous case study · 01</small>
+        <strong><span>←</span> Emergent communication</strong>
+      </a>
+      <a class="project-nav-link" href="../urban-air-mobility/">
+        <small>Next case study · 03</small>
+        <strong>Urban air mobility <span>→</span></strong>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="../../" aria-label="Back home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy"><strong>Sheng Li</strong><small>Think together.</small></span>
+    </a>
+    <p>© <span data-year>2026</span> Sheng Li</p>
+    <a class="back-to-top" href="#top">Back to top <span>↑</span></a>
+  </footer>
+  <script src="../../script.js"></script>
+</body>
+</html>

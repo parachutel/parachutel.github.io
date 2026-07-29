@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sheng Li's research on interpretable discrete message communication for cooperative multi-agent reinforcement learning.">
+  <meta name="author" content="Sheng Li">
+  <meta name="theme-color" content="#080b10">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Emergent Discrete Message Communication — Sheng Li">
+  <meta property="og:description" content="A compact, interpretable language for agents that need to act together.">
+  <meta property="og:url" content="https://gpage.sheng-li.me/projects/emergent-communication/">
+  <meta property="og:image" content="https://gpage.sheng-li.me/assets/images/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://gpage.sheng-li.me/projects/emergent-communication/">
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <title>Emergent Discrete Message Communication — Sheng Li</title>
+</head>
+<body class="project-page communication">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="../../" aria-label="Sheng Li, home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy"><strong>Sheng Li</strong><small>Intelligent systems</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="../../#about">About</a>
+      <a href="../../#research">Research</a>
+      <a href="../../#publications">Publications</a>
+      <a href="../../#photography">Photography</a>
+      <a class="nav-contact" href="../../#contact">Connect <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero project-hero" id="top" aria-labelledby="project-title">
+      <canvas id="agent-canvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <p class="project-breadcrumb">
+        <a href="../">← Selected research</a><i></i><span>Case study / 01</span>
+      </p>
+
+      <div class="project-hero-copy">
+        <p class="eyebrow reveal"><span class="status-dot"></span> ICRA 2022 · Cooperative MARL</p>
+        <h1 id="project-title" class="reveal">
+          Emergent discrete
+          <span class="accent-line">message communication.</span>
+        </h1>
+        <p class="hero-intro reveal">
+          A compact, interpretable language for agents that need to act together—
+          learned through broadcast, listening, and self-attention.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="button button-primary" href="#overview">Read the case study <span>↓</span></a>
+          <a class="button button-ghost" href="https://arxiv.org/pdf/2102.12550.pdf" target="_blank" rel="noreferrer">Read the paper <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="project-visual reveal">
+        <div class="project-visual-frame">
+          <span class="project-visual-tag">Communication architecture</span>
+          <img src="../../assets/images/project-communication.png" alt="Architecture for discrete message communication between two cooperative agents" width="2222" height="1526">
+          <div class="project-visual-meta" aria-hidden="true"><span>Broadcast / Listen</span><span>Self-attention</span></div>
+        </div>
+        <span class="project-visual-index">01</span>
+      </div>
+      <a class="scroll-cue" href="#overview"><span>Explore the system</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <section class="project-facts" aria-label="Project facts">
+      <div class="project-facts-inner">
+        <div class="project-fact"><small>Domain</small><strong>Cooperative multi-agent RL</strong></div>
+        <div class="project-fact"><small>Mechanism</small><strong>Broadcast + listen</strong></div>
+        <div class="project-fact"><small>Representation</small><strong>Discrete messages</strong></div>
+        <div class="project-fact"><small>Venue</small><strong>IEEE ICRA 2022</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section" id="overview" aria-labelledby="overview-title">
+      <div class="case-label reveal"><span>01</span> The problem</div>
+      <div class="case-heading-grid">
+        <h2 id="overview-title" class="reveal">Useful signals, <em>readable language.</em></h2>
+        <div class="case-copy reveal">
+          <p>
+            Communication is central to cooperation, but many multi-agent systems
+            exchange continuous vectors whose expressive power comes at the cost
+            of interpretability. The agents may coordinate, yet neither a human
+            designer nor another system can easily inspect what was said.
+          </p>
+          <p>
+            This work asks whether agents can learn a discrete protocol—closer
+            to a small vocabulary than an opaque latent channel—while preserving
+            the performance benefits of learned communication.
+          </p>
+        </div>
+      </div>
+      <div class="project-question reveal">
+        <span>Q / 01</span>
+        <blockquote>Can agents learn messages small enough to inspect, yet expressive enough to cooperate?</blockquote>
+      </div>
+    </section>
+
+    <section class="case-section method-section" id="method" aria-labelledby="method-title">
+      <div class="case-label reveal"><span>02</span> The architecture</div>
+      <div class="case-heading-grid">
+        <h2 id="method-title" class="reveal">Speak. Listen. <em>Act.</em></h2>
+        <div class="case-copy reveal">
+          <p>
+            Each agent encodes its local observation, produces a candidate
+            discrete message, and learns how strongly to attend to messages from
+            other agents. The weighted message aggregate augments the agent’s
+            own representation before its policy selects an action.
+          </p>
+        </div>
+      </div>
+
+      <figure class="method-figure reveal">
+        <div class="method-image">
+          <img src="../../assets/images/project-communication.png" alt="Detailed broadcast-and-listen communication architecture with observation, attention, message, and action policy modules" width="2222" height="1526" loading="lazy">
+        </div>
+        <figcaption><span>Figure 01 / Broadcast-and-listen architecture</span><span>Discrete messages + multiplicative attention</span></figcaption>
+      </figure>
+
+      <div class="method-steps">
+        <article class="method-step reveal">
+          <span>01 / Encode</span>
+          <h3>Read the local world</h3>
+          <p>An observation encoder turns each agent’s private input into a compact embedding.</p>
+        </article>
+        <article class="method-step reveal">
+          <span>02 / Communicate</span>
+          <h3>Broadcast and listen</h3>
+          <p>Message logits select a discrete token while attention weights decide which incoming messages matter.</p>
+        </article>
+        <article class="method-step reveal">
+          <span>03 / Coordinate</span>
+          <h3>Act with shared context</h3>
+          <p>The aggregated message joins the local embedding so the action policy can respond to the group.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section" id="findings" aria-labelledby="findings-title">
+      <div class="case-label reveal"><span>03</span> What it showed</div>
+      <div class="findings-heading">
+        <h2 id="findings-title" class="reveal">Interpretability without surrendering coordination.</h2>
+        <p class="reveal">A constrained channel can still carry the information a cooperative team needs.</p>
+      </div>
+      <div class="finding-grid">
+        <article class="finding-card reveal">
+          <span>01 / Performance</span>
+          <h3>Comparable to continuous communication</h3>
+          <p>The learned discrete protocol achieved performance comparable to continuous-message approaches.</p>
+        </article>
+        <article class="finding-card reveal">
+          <span>02 / Vocabulary</span>
+          <h3>Far fewer symbols</h3>
+          <p>Agents coordinated with a much smaller vocabulary, making the channel easier to inspect and reason about.</p>
+        </article>
+        <article class="finding-card reveal">
+          <span>03 / Interaction</span>
+          <h3>A channel for people, too</h3>
+          <p>The same discrete interface enables humans to send messages interactively to participating agents.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="paper-section" id="paper" aria-labelledby="paper-title">
+      <div class="paper-inner">
+        <span class="paper-index">04 / Paper</span>
+        <div class="paper-copy reveal">
+          <p class="kicker">Published at ICRA 2022</p>
+          <h2 id="paper-title">Learning Emergent Discrete Message Communication for Cooperative Reinforcement Learning</h2>
+          <p class="paper-authors">Sheng Li, Y. Zhou, R. Allen, and M. J. Kochenderfer</p>
+          <p class="paper-venue">IEEE International Conference on Robotics and Automation · 2022</p>
+        </div>
+        <div class="paper-actions reveal">
+          <a class="button button-primary" href="https://arxiv.org/pdf/2102.12550.pdf" target="_blank" rel="noreferrer">Open PDF <span>↗</span></a>
+          <a class="button button-ghost" href="https://sheng-li.me/learning-emergent-discrete-message-communication-for-cooperative-reinforcement-learning/" target="_blank" rel="noreferrer">Source archive <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <nav class="project-navigation" aria-label="More research">
+      <a class="project-nav-link previous" href="../">
+        <small>Research index</small>
+        <strong><span>←</span> All selected work</strong>
+      </a>
+      <a class="project-nav-link" href="../implicit-coordination/">
+        <small>Next case study · 02</small>
+        <strong>Implicit coordination graphs <span>→</span></strong>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="../../" aria-label="Back home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy"><strong>Sheng Li</strong><small>Think together.</small></span>
+    </a>
+    <p>© <span data-year>2026</span> Sheng Li</p>
+    <a class="back-to-top" href="#top">Back to top <span>↑</span></a>
+  </footer>
+  <script src="../../script.js"></script>
+</body>
+</html>

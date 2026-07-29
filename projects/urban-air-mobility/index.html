@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sheng Li's simulation-driven analysis of fleet management and infrastructure constraints in on-demand urban air mobility.">
+  <meta name="author" content="Sheng Li">
+  <meta name="theme-color" content="#080b10">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Urban Air Mobility at System Scale — Sheng Li">
+  <meta property="og:description" content="Finding the design and policy choices that control capacity and throughput.">
+  <meta property="og:url" content="https://gpage.sheng-li.me/projects/urban-air-mobility/">
+  <meta property="og:image" content="https://gpage.sheng-li.me/assets/images/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://gpage.sheng-li.me/projects/urban-air-mobility/">
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <title>Urban Air Mobility at System Scale — Sheng Li</title>
+</head>
+<body class="project-page uam">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="../../" aria-label="Sheng Li, home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy"><strong>Sheng Li</strong><small>Intelligent systems</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="../../#about">About</a>
+      <a href="../../#research">Research</a>
+      <a href="../../#publications">Publications</a>
+      <a href="../../#photography">Photography</a>
+      <a class="nav-contact" href="../../#contact">Connect <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero project-hero" id="top" aria-labelledby="project-title">
+      <canvas id="agent-canvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <p class="project-breadcrumb">
+        <a href="../">← Selected research</a><i></i><span>Case study / 03</span>
+      </p>
+
+      <div class="project-hero-copy">
+        <p class="eyebrow reveal"><span class="status-dot"></span> AIAA 2020 · Best paper</p>
+        <h1 id="project-title" class="reveal">
+          Urban air mobility
+          <span class="accent-line">at system scale.</span>
+        </h1>
+        <p class="hero-intro reveal">
+          Simulation-driven analysis of the fleet, infrastructure, and traffic
+          policies that determine whether an on-demand aerial network can scale.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="button button-primary" href="#overview">Read the case study <span>↓</span></a>
+          <a class="button button-ghost" href="https://arxiv.org/pdf/2008.05535.pdf" target="_blank" rel="noreferrer">Read the paper <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="project-visual reveal">
+        <div class="project-visual-frame">
+          <span class="project-visual-tag">Vertiport operations model</span>
+          <img src="../../assets/images/project-uam.png" alt="Urban air mobility operational flow through approach, landing, turnaround, and departure stages" width="1732" height="878">
+          <div class="project-visual-meta" aria-hidden="true"><span>Capacity / Throughput</span><span>System of systems</span></div>
+        </div>
+        <span class="project-visual-index">03</span>
+      </div>
+      <a class="scroll-cue" href="#overview"><span>Explore the system</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <section class="project-facts" aria-label="Project facts">
+      <div class="project-facts-inner">
+        <div class="project-fact"><small>Domain</small><strong>Urban air mobility</strong></div>
+        <div class="project-fact"><small>Method</small><strong>Simulation-driven analysis</strong></div>
+        <div class="project-fact"><small>Measures</small><strong>Capacity + throughput</strong></div>
+        <div class="project-fact"><small>Recognition</small><strong>AIAA Best Paper 2020</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section" id="overview" aria-labelledby="overview-title">
+      <div class="case-label reveal"><span>01</span> The problem</div>
+      <div class="case-heading-grid">
+        <h2 id="overview-title" class="reveal">A vehicle is not <em>an ecosystem.</em></h2>
+        <div class="case-copy reveal">
+          <p>
+            Operational feasibility in urban air mobility depends on more than
+            aircraft performance. Ground infrastructure, fleet size, turnaround
+            time, traffic separation, demand, and dispatch policies interact as
+            one system of systems.
+          </p>
+          <p>
+            This work builds an operational model for that ecosystem and probes
+            it across demand profiles and design choices. The goal is not a
+            single forecast, but a map of which decisions materially influence
+            capacity and throughput.
+          </p>
+        </div>
+      </div>
+      <div class="project-question reveal">
+        <span>Q / 03</span>
+        <blockquote>Which design choices actually govern the performance of an on-demand aerial transportation network?</blockquote>
+      </div>
+    </section>
+
+    <section class="case-section method-section" id="method" aria-labelledby="method-title">
+      <div class="case-label reveal"><span>02</span> The operational model</div>
+      <div class="case-heading-grid">
+        <h2 id="method-title" class="reveal">Model the whole <em>journey.</em></h2>
+        <div class="case-copy reveal">
+          <p>
+            The analysis follows traffic through arrival separation, approach
+            fixes, landing and takeoff zones, passenger loading, maintenance,
+            charging, turnaround, and departure. Simulation then measures how
+            infrastructure, vehicle, fleet, and management choices affect the
+            network under different demand conditions.
+          </p>
+        </div>
+      </div>
+
+      <figure class="method-figure reveal">
+        <div class="method-image">
+          <img src="../../assets/images/project-uam.png" alt="Operational model of a vertiport from arrival traffic through turnaround and departure" width="1732" height="878" loading="lazy">
+        </div>
+        <figcaption><span>Figure 01 / Vertiport operations flow</span><span>Arrival → turnaround → departure</span></figcaption>
+      </figure>
+
+      <div class="method-steps">
+        <article class="method-step reveal">
+          <span>01 / Represent</span>
+          <h3>Model the ecosystem</h3>
+          <p>Ground operations, air traffic, fleet design, and vehicle constraints become one operational simulation.</p>
+        </article>
+        <article class="method-step reveal">
+          <span>02 / Stress</span>
+          <h3>Vary demand and design</h3>
+          <p>Scenarios sweep plausible demand profiles and ecosystem parameters to expose bottlenecks and sensitivities.</p>
+        </article>
+        <article class="method-step reveal">
+          <span>03 / Measure</span>
+          <h3>Read capacity and throughput</h3>
+          <p>Feasibility and scalability emerge from how many trips the complete system can safely sustain.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section" id="findings" aria-labelledby="findings-title">
+      <div class="case-label reveal"><span>03</span> What it showed</div>
+      <div class="findings-heading">
+        <h2 id="findings-title" class="reveal">Policy can matter more than hardware.</h2>
+        <p class="reveal">Once basic infrastructure and fleet choices are sensible, management decisions become the stronger lever.</p>
+      </div>
+      <div class="finding-grid">
+        <article class="finding-card reveal">
+          <span>01 / Robustness</span>
+          <h3>Infrastructure has a workable range</h3>
+          <p>Performance remains relatively robust to ground-infrastructure choices when those choices stay within sensible bounds.</p>
+        </article>
+        <article class="finding-card reveal">
+          <span>02 / Sensitivity</span>
+          <h3>Management policy drives performance</h3>
+          <p>Fleet and traffic management policies exert a stronger influence on ecosystem capacity and throughput.</p>
+        </article>
+        <article class="finding-card reveal">
+          <span>03 / Design</span>
+          <h3>Simulation becomes a guideline</h3>
+          <p>The sensitivity analysis supports practical guidance for fleet, vehicle, infrastructure, and operating-policy decisions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="paper-section" id="paper" aria-labelledby="paper-title">
+      <div class="paper-inner">
+        <span class="paper-index">04 / Paper</span>
+        <div class="paper-copy reveal">
+          <p class="kicker">AIAA Best Paper Award · 2020</p>
+          <h2 id="paper-title">Analysis of Fleet Management and Infrastructure Constraints in On-Demand Urban Air Mobility Operations</h2>
+          <p class="paper-authors">Sheng Li, M. Egorov, and M. J. Kochenderfer</p>
+          <p class="paper-venue">AIAA AVIATION Forum · 2020</p>
+        </div>
+        <div class="paper-actions reveal">
+          <a class="button button-primary" href="https://arxiv.org/pdf/2008.05535.pdf" target="_blank" rel="noreferrer">Open PDF <span>↗</span></a>
+          <a class="button button-ghost" href="https://sheng-li.me/analysis-of-fleet-management-and-infrastructure-constraints-in-on-demand-urban-air-mobility-operations/" target="_blank" rel="noreferrer">Source archive <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <nav class="project-navigation" aria-label="More research">
+      <a class="project-nav-link previous" href="../implicit-coordination/">
+        <small>Previous case study · 02</small>
+        <strong><span>←</span> Implicit coordination</strong>
+      </a>
+      <a class="project-nav-link" href="../dense-airspace/">
+        <small>Next case study · 04</small>
+        <strong>Dense airspace safety <span>→</span></strong>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="../../" aria-label="Back home">
+      <span class="brand-mark">SL</span>
+      <span class="brand-copy"><strong>Sheng Li</strong><small>Think together.</small></span>
+    </a>
+    <p>© <span data-year>2026</span> Sheng Li</p>
+    <a class="back-to-top" href="#top">Back to top <span>↑</span></a>
+  </footer>
+  <script src="../../script.js"></script>
+</body>
+</html>
