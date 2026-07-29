@@ -1036,23 +1036,71 @@ a:focus-visible {
 }
 
 .research-cta {
-  display: flex;
+  display: grid;
   margin-top: clamp(4rem, 8vw, 8rem);
-  padding-top: 1.5rem;
+  padding: clamp(1.25rem, 2.4vw, 1.9rem);
   align-items: center;
+  grid-template-columns: minmax(0, 1fr) auto;
   justify-content: space-between;
   gap: 2rem;
-  border-top: 1px solid var(--line);
+  border: 1px solid rgba(241, 240, 234, 0.2);
+  border-radius: 1.2rem;
+  background:
+    linear-gradient(115deg, rgba(255, 92, 69, 0.1), transparent 48%),
+    rgba(241, 240, 234, 0.025);
 }
 
 .research-cta p {
   max-width: 490px;
   margin: 0;
-  color: rgba(241, 240, 234, 0.42);
-  font-size: 0.82rem;
+  color: rgba(241, 240, 234, 0.58);
+  font-size: clamp(0.86rem, 1vw, 0.98rem);
 }
 
-.research-cta a,
+.research-cta a {
+  display: inline-flex;
+  min-height: 56px;
+  padding: 0 1.4rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 1px solid var(--paper);
+  border-radius: 999px;
+  background: var(--paper);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: clamp(0.7rem, 0.78vw, 0.78rem);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.research-cta a:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 16px 38px rgba(255, 92, 69, 0.2);
+}
+
+.research-cta a span {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 1rem;
+  transition: transform 200ms ease;
+}
+
+.research-cta a:hover span {
+  transform: translateX(4px);
+  color: var(--ink);
+}
+
 .text-link {
   font-family: var(--mono);
   font-size: 0.64rem;
@@ -1060,7 +1108,6 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-.research-cta a span,
 .text-link span {
   display: inline-block;
   margin-left: 0.45rem;
@@ -1068,7 +1115,6 @@ a:focus-visible {
   transition: transform 200ms ease;
 }
 
-.research-cta a:hover span,
 .text-link:hover span {
   transform: translate(3px, -3px);
 }
@@ -1859,7 +1905,13 @@ a:focus-visible {
 
   .research-cta {
     align-items: flex-start;
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .research-cta a {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .publications .text-link {
