@@ -1643,6 +1643,13 @@ a:focus-visible {
     height: 74px;
   }
 
+  body.menu-open .site-header {
+    border-color: transparent;
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
   .menu-toggle {
     position: relative;
     z-index: 3;
@@ -1677,21 +1684,37 @@ a:focus-visible {
   .primary-nav {
     position: fixed;
     z-index: 2;
-    inset: 0;
+    top: 0;
+    left: 0;
     display: flex;
+    width: 100vw;
+    height: 100dvh;
+    min-height: 100svh;
     padding: 7rem var(--page-pad) 3rem;
+    overflow-y: auto;
     transform: translateY(-100%);
     align-items: flex-start;
     flex-direction: column;
     gap: 1.6rem;
     background:
       radial-gradient(circle at 80% 20%, rgba(255, 92, 69, 0.18), transparent 30%),
-      rgba(8, 11, 16, 0.98);
-    transition: transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      var(--ink);
+    visibility: hidden;
+    overscroll-behavior: contain;
+    pointer-events: none;
+    -webkit-overflow-scrolling: touch;
+    transition:
+      transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      visibility 0s linear 450ms;
   }
 
   .primary-nav.open {
     transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      visibility 0s linear;
   }
 
   .primary-nav a {
